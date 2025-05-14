@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgow6l3gs0c2t"]
+
+[ext_resource type="Script" uid="uid://dbgq3bxs2dlbj" path="res://player.gd" id="1_onrkg"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4flbx"]
+radius = 20.0
+
+[node name="Player" type="CharacterBody2D"]
+collision_mask = 3
+script = ExtResource("1_onrkg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.13, 0.13)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_4flbx")
+
+[node name="LabelGameOver" type="Label" parent="."]
+visible = false
+offset_left = -135.0
+offset_top = -98.0
+offset_right = 136.0
+offset_bottom = -29.0
+theme_override_font_sizes/font_size = 50
+text = "Game Over"
+
+[node name="TimerGameOver" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="timeout" from="TimerGameOver" to="." method="_on_timer_game_over_timeout"]
