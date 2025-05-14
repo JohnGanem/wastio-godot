@@ -15,9 +15,8 @@ func _ready():
 	player.spawn_area = Rect2(initial_moving_area.position.x, initial_moving_area.position.y, 
 		initial_moving_area.size.x, initial_moving_area.size.y)
 	enemy_spawner.enemy_container = enemy_container
-	
 
-func game_over(player):
+func game_over():
 	if is_game_over:
 		return
 	is_game_over = true
@@ -28,7 +27,7 @@ func restart():
 	get_node("/root/Main").add_child(start.instantiate())
 	self.queue_free()
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if(!timer_initial.is_stopped()):
 		status.text = "La partie va démarrer dans " + str(timer_initial.time_left).pad_decimals(0)
 	

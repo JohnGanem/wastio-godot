@@ -2,7 +2,6 @@ extends CharacterBody2D
 
 @onready var label_game_over: Label = $LabelGameOver
 @onready var timer_game_over: Timer = $TimerGameOver
-@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 var spawn_area: Rect2
@@ -66,7 +65,7 @@ func _physics_process(delta: float) -> void:
 		var collider = collision.get_collider()
 		# If the player collides with an enemy, trigger game over
 		if collider.is_in_group("Enemy"):
-			GameManager.game.game_over(self)
+			GameManager.game.game_over()
 	
 	# Clamp player position within the spawn area
 	global_position.x = clamp(global_position.x, spawn_area.position.x, spawn_area.position.x + spawn_area.size.x)

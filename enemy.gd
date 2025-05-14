@@ -77,7 +77,7 @@ func _physics_process(delta: float) -> void:
 
 	var collision = move_and_collide(velocity)
 	if collision && collision.get_collider().is_in_group("Player"): 
-		GameManager.game.game_over(collision.get_collider())
+		GameManager.game.game_over()
 	 # Remove if far outside bounds
 	if not moving_area.has_point(global_position):
 		queue_free()

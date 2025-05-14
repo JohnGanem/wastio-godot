@@ -5,3 +5,5 @@
 [node name="Main" type="Node2D"]
 
 [node name="Start" parent="." instance=ExtResource("1_ig7tw")]
+
+[node name="NetworkManager" type="Node" parent="."]
